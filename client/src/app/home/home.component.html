@@ -63,8 +63,9 @@
         </mat-accordion>
       </mat-card-title>
 
-
+      <div id="washerAvail">
       <mat-card-content style="height: 15px; margin-left: 2px">
+        Washer
         <a class="roomStatus">
           <mat-icon class="vacant">check_circle_outline</mat-icon>
           {{this.roomWasherVacant}} vacant</a>
@@ -75,8 +76,11 @@
           <mat-icon class="unavailable">highlight_off</mat-icon>
           {{this.roomWasherBroken}} broken</a>
       </mat-card-content>
+      </div>
 
+        <div id="dryerAvail">
       <mat-card-content style="height: 15px; margin-left: 2px">
+        Dryer
         <a class="roomStatus">
           <mat-icon class="vacant">check_circle_outline</mat-icon>
           {{this.roomDryerVacant}} vacant</a>
@@ -87,7 +91,9 @@
           <mat-icon class="unavailable">highlight_off</mat-icon>
           {{this.roomDryerBroken}} broken</a>
       </mat-card-content>
+        </div>
     </mat-card>
+
 
     <mat-card *ngIf="this.roomId === ''"
               style="margin-top: -10px; margin-bottom: 10px; max-height: min-content !important;" class="roomHeading">
@@ -118,19 +124,19 @@
   <mat-grid-list cols="{{this.getGraphCols()}}" rowHeight="280px">
 
     <mat-grid-tile *ngIf="this.moveHeader()" class="roomHeader">
-      <mat-card id="roomInfo" style="width: 100%; height: 80%;">
-
-        <mat-card *ngIf="this.roomId != ''">
+      <mat-card *ngIf="this.roomId != ''" id="roomInfo" style="width: 100%; height: 80%;">
 
           <div class="roomNamer">
             <mat-card-title id="roomTitle"
-                            style=" font-weight: 300; font-size: 40px; line-height: 1.15">
+                            style=" font-weight: 300; font-size: 30px; line-height: 1.15">
               {{this.roomName}}
               <mat-accordion id="default-mark" *ngIf="defaultSet(roomName)" style="font-size: 75%; font-weight: initial" >default</mat-accordion>
+
             </mat-card-title>
           </div>
-
+          <div id="washerAvail2">
           <mat-card-content style="height: 15px; margin-left: 2px">
+            Washer
             <a class="roomStatus">
               <mat-icon class="vacant">check_circle_outline</mat-icon>
               {{this.roomWasherVacant}} vacant</a>
@@ -141,8 +147,10 @@
               <mat-icon class="unavailable">highlight_off</mat-icon>
               {{this.roomWasherBroken}} broken</a>
           </mat-card-content>
-
+          </div>
+          <div id="dryerAvail2">
           <mat-card-content style="height: 15px; margin-left: 2px">
+            Dryer
             <a class="roomStatus">
               <mat-icon class="vacant">check_circle_outline</mat-icon>
               {{this.roomDryerVacant}} vacant</a>
@@ -153,8 +161,7 @@
               <mat-icon class="unavailable">highlight_off</mat-icon>
               {{this.roomDryerBroken}} broken</a>
           </mat-card-content>
-
-        </mat-card>
+          </div>
 
 
 
