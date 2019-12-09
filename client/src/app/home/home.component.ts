@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Room} from './room';
 import {History} from './history';
 import {Machine} from './machine';
@@ -8,12 +8,11 @@ import {HomeService} from './home.service';
 import {CookieService} from 'ngx-cookie-service';
 
 import * as Chart from 'chart.js';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {HomeDialog} from './home.dialog';
 import {SubscriptionDialog} from './home.subscription';
 
 import {Subscription} from './subscription';
-import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 
@@ -51,9 +50,6 @@ export class HomeComponent implements OnInit {
   public selectorState: number;
   public numOfVacant: number;
   public numOfAll: number;
-
-  public mapWidth: number;
-  public mapHeight: number;
 
   public isSubscribed: boolean;
   public subscriptionDisabled: boolean;
@@ -217,8 +213,6 @@ export class HomeComponent implements OnInit {
       this.numOfBroken = this.filteredMachines.filter(m => m.status === 'broken').length;
       this.numOfWashers = this.filteredMachines.filter(m => m.status === 'normal' && m.type === 'washer').length;
       this.numOfDryers = this.filteredMachines.filter(m => m.status === 'normal' && m.type === 'dryer').length;
-      this.mapHeight = this.filteredMachines.reduce((max, b) => Math.max(max, b.position.y), this.filteredMachines[0].position.y);
-      this.mapWidth = this.filteredMachines.reduce((max, b) => Math.max(max, b.position.x), this.filteredMachines[0].position.x);
     }
   }
 
