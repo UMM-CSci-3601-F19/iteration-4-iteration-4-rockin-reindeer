@@ -41,6 +41,11 @@ export class WelcomeComponent implements OnInit {
     }) ();
   }
 
+  snow(): boolean {
+    const date =  new Date();
+    return date.getMonth() === 11 && date.getDate() === 25;
+  }
+
   async navigateTo(id: string) {
     await this.router.navigateByUrl('/home/' + id);
   }
